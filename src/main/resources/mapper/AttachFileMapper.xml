@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.madive.bigcommerce.madiveone.admin.biz.cm.mapper.AttachFileMapper">
+
+    <!-- af10 -->
+    <select id="af10List" parameterType="attachFile" resultType="attachFile">
+    	SELECT	af10.AF10_GUID
+				,af10.AF10_OWNER_TABLE
+				,af10.AF10_OWNER_GUID
+				,af10.AF10_ORG_NAME
+				,af10.AF10_SAVE_PATH
+				,af10.AF10_REG_GUID
+				,af10.AF10_REG_DATE
+				
+		FROM	af10
+
+    	WHERE	1 = 1
+    	<if test="af10OwnerTable != null and af10OwnerGuid != null">
+    	AND		af10.AF10_OWNER_TABLE = #{af10OwnerTable}
+    	AND		af10.AF10_OWNER_GUID = #{af10OwnerGuid}
+    	</if>
+
+    	ORDER
+    	BY		af10.AF10_REG_DATE ASC
+    	LIMIT	${start}, ${pageSize}
+    </select>
+    
+    <select id="af10Data" parameterType="String" resultType="attachFile">
+    	SELECT	af10.AF10_GUID
+				,af10.AF10_OWNER_TABLE
+				,af10.AF10_OWNER_GUID
+				,af10.AF10_ORG_NAME
+				,af10.AF10_SAVE_PATH
+				,af10.AF10_REG_GUID
+				,af10.AF10_REG_DATE
+				
+		FROM	af10
+
+    	WHERE	af10.AF10_GUID = #{value}
+    </select>
+    
+    <insert id="af10Insert" parameterType="attachFile">
+    	INSERT INTO af10 (
+			AF10_GUID
+			,AF10_OWNER_TABLE
+			,AF10_OWNER_GUID
+			,AF10_ORG_NAME
+			,AF10_SAVE_PATH
+			,AF10_REG_GUID
+		) 
+		VALUES
+		(
+			#{af10Guid}
+			,#{af10OwnerTable}
+			,#{af10OwnerGuid}
+			,#{af10OrgName}
+			,#{af10SavePath}
+			,#{af10RegGuid}
+		)
+    </insert>
+    
+    <delete id="af10Delete" parameterType="String">
+    	DELETE FROM af10 WHERE AF10_GUID = #{value}
+    </delete>
+</mapper>

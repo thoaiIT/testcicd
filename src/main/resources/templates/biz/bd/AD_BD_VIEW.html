@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<!-- start::Head -->
+<head>
+<script th:src="@{/js/app/bd/ntView.js}"></script>
+</head>
+<!-- end::Head -->
+
+<!-- start::Body -->
+<body>
+	<div id="main" layout:fragment="content" class="notice-detail">
+        <div id="ntView" class="table-wrap mx-auto">
+            <h1 class="fw-bolder mb-3">Notice View</h1>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+					<li class="breadcrumb-item"><a href="/bd/list">Notice List</a></li>
+					<li class="breadcrumb-item active"><a href="#">Notice View</a></li>
+				</ol>
+			</nav>
+
+			<hr>
+
+			<table class="table">
+
+				<colgroup>
+					<col width="25%">
+					<col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+				</colgroup>
+
+				<tbody>
+
+					<tr>
+						<th>Category</th>
+						<td class="user-info" colspan="3">
+							{{form.category}}
+                        </td>
+					</tr>
+					<tr>
+						<th>Type</th>
+						<td class="user-info">
+							{{form.type}}
+                        </td>
+                        <th>Status</th>
+						<td class="user-info">
+							{{form.status}}
+                        </td>
+					</tr>
+					<tr>
+						<th>Subject</th>
+						<td  class="user-info" colspan="3">
+							{{form.bd10Subject}}
+						</td>
+					</tr>
+					<tr>
+                        <th>Body</th>
+						<td class="pt-3" colspan="3" v-html="form.bd10Body">
+						</td>
+					</tr>
+					<tr>
+						<th>Attach Files</th>
+						<td colspan="3">
+                            <div class="badge-group"></div>
+						</td>
+					</tr>
+                    <tr>
+						<th>Publishing period</th>
+						<td  class="user-info" colspan="3">
+							{{form.bd10Sdate}} ~ {{form.bd10Edate}}
+						</td>
+					</tr>
+                    <tr>
+						<th>Writer</th>
+						<td class="user-info">
+							{{form.regName}}
+                        </td>
+                        <th>Updater</th>
+						<td class="user-info">
+							{{form.updName}}
+                        </td>
+					</tr>
+                    <tr>
+						<th>Registration Date</th>
+						<td class="user-info">
+							{{form.regDate}}
+                        </td>
+                        <th>Updated Date</th>
+						<td class="user-info">
+							{{form.updDate}}
+                        </td>
+					</tr>
+
+				</tbody>
+			</table>
+
+            <div class="btn-group d-flex">
+				<div class="col-4"></div>
+				<div class="col-4 d-flex justify-content-center">
+                    <button class="btn btn-primary btn-md" @click="goList">Close</button>
+                </div>
+                <div class="col-4 d-flex justify-content-end">
+                    <button class="btn btn-primary btn-md me-0" @click="goEdit">Edit</button>
+                    <button class="btn btn-primary btn-md me-0" @click="goDelete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</body><!-- end::Body -->
+</html>

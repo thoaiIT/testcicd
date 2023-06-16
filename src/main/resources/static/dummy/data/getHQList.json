@@ -1,0 +1,30 @@
+{
+	"rtnStatus": "success",
+	"rtnMsg": "정상 조회 되었습니다.",
+	"list": [{
+		"parentCode" : "-",
+		"code" : "OHQ0001",
+		"name" : "서울",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "OHQ0002",
+		"name" : "경기",
+		"isActive" : "Y"          
+	}, {
+		"parentCode" : "-",
+		"code" : "OHQ0003",
+		"name" : "충북",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "OHQ0004",
+		"name" : "인천",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "OHQ0005",
+		"name" : "성남",
+		"isActive" : "Y"
+	}]
+}

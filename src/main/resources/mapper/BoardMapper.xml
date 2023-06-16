@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.madive.bigcommerce.madiveone.admin.biz.bd.mapper.BoardMapper">
+
+    <!-- bd10 -->
+    <sql id="bd10_col">
+    	SELECT	bd10.BD10_GUID
+				,bd10.BD10_CATEGORY
+				,bd10.BD10_STATUS
+				,bd10.BD10_TYPE
+				,bd10.BD10_SDATE
+				,bd10.BD10_EDATE
+				,bd10.BD10_SUBJECT
+				,bd10.BD10_BODY
+				,bd10.BD10_REG_GUID
+				,bd10.BD10_REG_DATE
+				,bd10.BD10_UPD_GUID
+				,bd10.BD10_UPD_DATE
+				,bd10.BD10_DEL_YN
+				,(SELECT AD10_NAME FROM ad10 WHERE ad10.AD10_GUID = bd10.BD10_REG_GUID) REG_NAME
+				,(SELECT AD10_NAME FROM ad10 WHERE ad10.AD10_GUID = bd10.BD10_UPD_GUID) UPD_NAME
+				
+		FROM	bd10
+    </sql>
+    
+    <sql id="bd10_count">
+    	SELECT	COUNT(1)
+    	
+    	FROM	bd10
+    </sql>
+    
+    <sql id="bd10_where">
+    	WHERE	bd10.BD10_GUID = #{value}
+    </sql>
+    
+    <sql id="bd10_whereForList">
+    	WHERE	bd10.BD10_DEL_YN = 'N'
+    	<if test="category != null">
+    	AND		bd10.BD10_CATEGORY = #{category}
+    	</if>
+    	<if test="status != null">
+    	AND		bd10.BD10_STATUS IN (<foreach collection="status" item="item" separator=",">#{item}</foreach>)
+    	</if>
+    	<if test="type != null">
+    	AND		bd10.BD10_TYPE IN (<foreach collection="type" item="item" separator=",">#{item}</foreach>)
+    	</if>
+    	<if test="periodType != null">
+    		<choose>
+    			<when test="periodType == 'openDate'">
+    				<if test="fromDate != null">
+    	AND		bd10.BD10_SDATE &gt;= #{fromDate}
+    				</if>
+    				<if test="toDate != null">
+    	AND		bd10.BD10_SDATE &lt;= #{toDate}
+    				</if>
+    			</when>
+    			<when test="periodType == 'regDate'">
+    				<if test="fromDate != null">
+    	AND		bd10.BD10_REG_DATE &gt;= #{fromDate}
+    				</if>
+    				<if test="toDate != null">
+    	AND		bd10.BD10_REG_DATE &lt;= #{toDate}
+    				</if>
+    			</when>
+    			<when test="periodType == 'updDate'">
+    				<if test="fromDate != null">
+    	AND		bd10.BD10_UPD_DATE &gt;= #{fromDate}
+    				</if>
+    				<if test="toDate != null">
+    	AND		bd10.BD10_UPD_DATE &lt;= #{toDate}
+    				</if>
+    			</when>
+    		</choose>
+    	</if>
+    	<if test="criteria != null and keyword != null">
+	    	<choose>
+	    		<when test="criteria == 'subject'">
+    	AND		bd10.BD10_SUBJECT like CONCAT('%',#{keyword},'%')
+	    		</when>
+	    		<when test="criteria == 'regName'">
+    	AND		bd10.BD10_REG_GUID IN (
+    		SELECT AD10_GUID FROM ad10 WHERE ad10.AD10_NAME LIKE CONCAT('%',#{keyword},'%') 
+    	)
+	    		</when>
+	    		<when test="criteria == 'updName'">
+    	AND		bd10.BD10_UPD_GUID IN (
+    		SELECT AD10_GUID FROM ad10 WHERE ad10.AD10_NAME LIKE CONCAT('%',#{keyword},'%') 
+    	)
+    			</when>
+    		</choose>
+    	</if>
+    </sql>
+    
+    <sql id="bd10_order">
+    	ORDER
+    	BY		bd10.BD10_REG_DATE DESC
+    	LIMIT	${start}, ${cntPerPage}
+    </sql>
+    
+    <select id="bd10Data" parameterType="String" resultType="board">
+		<include refid="bd10_col" />
+		<include refid="bd10_where" />
+    </select>
+    
+    <select id="bd10Count" parameterType="board" resultType="int">
+		<include refid="bd10_count" />
+		<include refid="bd10_whereForList" />
+    </select>
+    
+    <select id="bd10List" parameterType="board" resultType="board">
+		<include refid="bd10_col" />
+		<include refid="bd10_whereForList" />
+		<include refid="bd10_order" />
+    </select>
+    
+    <update id="bd10Update" parameterType="board">
+    	INSERT INTO bd10 (
+			BD10_GUID
+			,BD10_CATEGORY
+			,BD10_STATUS
+			,BD10_TYPE
+			,BD10_SDATE
+			,BD10_EDATE
+			,BD10_SUBJECT
+			,BD10_BODY
+			,BD10_REG_GUID
+			,BD10_UPD_GUID
+		) 
+		VALUES
+		(
+			#{bd10Guid}
+			,#{bd10Category}
+			,#{bd10Status}
+			,#{bd10Type}
+			,#{bd10Sdate}
+			,#{bd10Edate}
+			,#{bd10Subject}
+			,#{bd10Body}
+			,#{bd10RegGuid}
+			,#{bd10RegGuid}
+		) ON DUPLICATE KEY UPDATE
+			BD10_UPD_GUID = #{bd10RegGuid}
+			,BD10_UPD_DATE = NOW()
+			,BD10_CATEGORY = IFNULL(#{bd10Category},BD10_CATEGORY)
+			,BD10_STATUS = IFNULL(#{bd10Status},BD10_STATUS)
+			,BD10_TYPE = IFNULL(#{bd10Type},BD10_TYPE)
+			,BD10_SDATE = IFNULL(#{bd10Sdate},BD10_SDATE)
+			,BD10_EDATE = IFNULL(#{bd10Edate},BD10_EDATE)
+			,BD10_SUBJECT = IFNULL(#{bd10Subject},BD10_SUBJECT)
+			,BD10_BODY = IFNULL(#{bd10Body},BD10_BODY)
+			,BD10_DEL_YN = IFNULL(#{bd10DelYn},BD10_DEL_YN)
+    </update>
+    
+    <delete id="bd10Delete" parameterType="String">
+    	UPDATE	bd10
+    	
+    	SET		BD10_DEL_YN = 'Y'
+    	
+    	WHERE	BD10_GUID = #{value} 
+    </delete>
+</mapper>

@@ -1,0 +1,30 @@
+{
+	"rtnStatus": "success",
+	"rtnMsg": "정상 조회 되었습니다.",
+	"list": [{
+		"parentCode" : "-",
+		"code" : "GRD001",
+		"name" : "1학년",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "GRD002",
+		"name" : "2학년",
+		"isActive" : "Y"          
+	}, {
+		"parentCode" : "-",
+		"code" : "GRD003",
+		"name" : "3학년",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "GRD004",
+		"name" : "4학년",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "GRD005",
+		"name" : "5학년",
+		"isActive" : "Y"
+	}]
+}

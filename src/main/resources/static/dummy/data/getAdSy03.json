@@ -1,0 +1,21 @@
+{
+    "status": "00",
+    "msg" : "success",
+    "data": {
+        "sy02Data00": "1",
+        "sy02Data01": "aiomaster02",
+        "sy02Data02": "김유신",
+        "sy02Data03": "2",
+        "sy02Data04": "1",
+        "sy02Data05": "IT 운영2팀",
+        "sy02Data06": "19801011",
+        "sy02Data07": "01012341234",
+        "sy02Data08": "asdf1234@daekyo.com",
+        "sy02Data09": "admin",
+        "sy02Data09Txt": "홍길동",
+		"sy02Data10": "2021-12-31 23:59",
+		"sy02Data11": "",
+        "sy02Data11Txt": "-",
+		"sy02Data12": ""		                           
+	}
+}

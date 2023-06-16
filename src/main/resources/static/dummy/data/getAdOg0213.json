@@ -1,0 +1,27 @@
+{
+        "rtnStatus" : "success",
+        "rtnMsg" : "정상 조회 되었습니다.",
+        "total" : 200,
+        "list" : [{
+                "hqCode" : "OHQ0001",
+                "hqName" : "서울",
+                "allTeacherCount" : 42,
+                "hqTeacherCount" : 5,
+                "brTeacherCount" : 12,
+                "ptTeacherCount" : 25
+        }, {
+                "hqCode" : "OHQ0002",
+                "hqName" : "경기",
+                "allTeacherCount" : 52,
+                "hqTeacherCount" : 7,
+                "brTeacherCount" : 15,
+                "ptTeacherCount" : 30
+        }, {
+                "hqCode" : "OHQ0003",
+                "hqName" : "경기",
+                "allTeacherCount" : 62,
+                "hqTeacherCount" : 5,
+                "brTeacherCount" : 17,
+                "ptTeacherCount" : 40
+        }]
+}

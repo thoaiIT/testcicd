@@ -1,0 +1,76 @@
+spring:
+  profiles:
+    active: loc
+
+  application:
+    name: madive-one
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    dbcp2:
+      driver-class-name: org.mariadb.jdbc.Driver
+      validation-query: SELECT 1
+      test-on-borrow: true
+    hikari:
+      pool-name: hikari-cp-${spring.profiles.active}
+      driver-class-name: org.mariadb.jdbc.Driver
+      connection-test-query: SELECT 1
+
+  thymeleaf:
+    mode: HTML
+    cache: false
+
+  jackson:
+    #property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: NON_NULL
+
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 10MB
+
+server:
+  port: 8100
+  error:
+    include-stacktrace: NEVER
+
+# TODO ... 정리 필요
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: 'com.madive.bigcommerce.madiveone.admin.domain'
+  type-handlers-package: com.madive.bigcommerce.madiveone.admin
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+
+logging:
+  level:
+    root: info
+
+
+---
+
+spring:
+  profiles: loc
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: 'jdbc:mariadb://madivefix.iptime.org:3306/madive-one?useUnicode=true&character_set_server=utf8&interactiveClient=true&autoReconnect=true&autoReconnectForPools=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true'
+    username: madive
+    password: apelqmdnjs20@#
+
+logging:
+  level:
+    #root: debug
+    com:
+      madive:
+        bigcommerce:
+          madiveone: trace
+    org:
+      apache:
+        http:
+          wire: debug
+
+upload:
+  path: D:\IDE\Editor\eclipse-jee-2023-03-R-win32-x86_64\workspace\madive-one\src\main\resources\upload

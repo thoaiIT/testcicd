@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.madive.bigcommerce.madiveone.admin.auth.mapper.AuthMapper">
+
+    <select id="data" resultType="user">
+		SELECT	ad10.AD10_GUID
+				, ad10.AD10_LOGIN_ID
+				, HEX(ad10.AD10_PWD) AD10_PWD
+				, ad10.AD10_NAME
+				, ad10.AD10_REG_DATE
+				, HEX(UNHEX(SHA2(#{ad10Pwd},256))) AD10_PWD_IN
+        
+        FROM	ad10
+
+		WHERE	ad10.AD10_LOGIN_ID = #{ad10LoginId}
+    </select>
+</mapper>

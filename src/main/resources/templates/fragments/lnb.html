@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="lnbFragment" class="side-nav flex-shrink-0 bg-white">
+	<ul class="list-unstyled ps-0">
+    	<li>
+      		<button class="btn btn-toggle align-items-center collapsed" th:onclick="|location.href = '@{/bd/list}';|">
+      		    Notice
+      		</button>
+		</li>
+	</ul>
+</div>
+</html>

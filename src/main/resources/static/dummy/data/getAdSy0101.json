@@ -1,0 +1,39 @@
+{        
+    "total": 21,
+    "list": [
+        {
+            "guid": 1,
+            "roleSeq": "권한코드",
+            "roleName": "마스터",
+            "deptName": "홍길동",
+            "status": "사용자 상태코드",
+            "dept": "IT 운영팀",
+            "mobile": "010-1234-5678",
+            "email": "abcd123@daekyo.com",
+            "regDttm": "2021-11-10 22:00",
+            "regName": "홍길동",
+            "updDttm": "2021-09-09 09:12:45",
+            "updName": "홍길동",
+            "loginAt": "2021-09-09 09:12:45"           
+        },
+        {
+            "sy01List01": 2,
+            "sy01List02": "권한코드",
+            "sy01List02Txt": "마스터",
+            "sy01List03": "홍길동",
+            "sy01List04": "사용자 상태코드",
+            "sy01List04Txt": "근무",
+            "sy01List05": "부서코드",
+            "sy01List05Txt": "IT 운영팀",
+            "sy01List06": "010-1234-5678",
+            "sy01List07": "abcd123@daekyo.com",
+            "sy01List08": "2021-11-10 22:00",
+            "sy01List09": "등록자 ID",
+            "sy01List09Txt": "홍길동",
+            "sy01List10": "2021-09-09 09:12:45",
+            "sy01List11": "수정자 ID",
+            "sy01List11Txt": "홍길동",
+            "sy01List12": "2021-09-09 09:12:45"           
+        }
+    ]
+}

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<!-- start::Head -->
+<head>
+<script th:src="@{/js/app/bd/ntWrite.js}"></script>
+</head>
+<!-- end::Head -->
+
+<!-- start::Body -->
+<body>
+	<div id="main" layout:fragment="content" class="notice-enroll">
+        <div id="ntWrite" class="table-wrap mx-auto">
+            <h1 class="fw-bolder mb-3">Notice Regist/Update</h1>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+					<li class="breadcrumb-item"><a href="#">Notice List</a></li>
+					<li class="breadcrumb-item active"><a href="#">Notice Regist/Update</a></li>
+				</ol>
+			</nav>
+
+			<hr>
+			
+			<table class="table">
+
+				<colgroup>
+					<col width="25%">
+					<col width="25%">
+                    <col width="25%">
+                    <col width="25%">
+				</colgroup>
+
+				<tbody>
+
+					<tr>
+						<th>Category</th>
+						<td colspan="3">
+							<div class="d-flex">
+	                            <select class="form-select form-md me-2" ref="target" v-model="form.bd10Category">
+									<option value="" selected>Select</option>
+									<option v-for="(data, index) in category" :value="data.code">{{data.text}}</option>
+								</select>
+							</div>
+                        </td>
+					</tr>
+					<tr>
+						<th>Type</th>
+						<td>
+                            <div class="radio-group d-flex align-items-center">
+								<label class="btn-radio">
+									<input type="radio" checked="checked" v-model="form.bd10Type" value="N">
+									<small class="radio-text">Normal</small>
+								</label>
+								<label class="btn-radio">
+									<input type="radio" v-model="form.bd10Type" value="I">
+									<small class="radio-text">Important</small>
+								</label>
+								</label>
+							</div>
+                        </td>
+                        <th>Status</th>
+						<td>
+                            <div class="radio-group d-flex align-items-center">
+								<label class="btn-radio">
+									<input type="radio" checked="checked" v-model="form.bd10Status" value="O">
+									<small class="radio-text">Open</small>
+								</label>
+								<label class="btn-radio">
+									<input type="radio" v-model="form.bd10Status" value="R">
+									<small class="radio-text">Ready</small>
+								</label>
+								<label class="btn-radio">
+									<input type="radio" v-model="form.bd10Status" value="C">
+									<small class="radio-text">Close</small>
+								</label>
+							</div>
+                        </td>
+					</tr>
+					<tr>
+						<th>Subject</th>
+						<td colspan="3">
+							<div class="d-flex justify-content-between align-items-center">
+								<input class="form-control form-xxl" id="subject" type="text" placeholder="Plese input subject" maxlength="100" v-model="form.bd10Subject">
+
+								<span class="text-length">Up to 100 characters</span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+                        <th>Body</th>
+						<td colspan="3">
+							<form class="mb-4" method="post">
+								<textarea id="summernote" name="editordata" v-model="form.bd10Body"></textarea>
+							</form>		
+						</td>
+					</tr>
+					<tr>
+						<th>Attach File</th>
+						<td colspan="3">
+                            <div class="custom-file">
+                                <!-- 잘못된 파일 형식이나 용량초과 시 "#fileUp_1" -->
+                                <!-- 5개 이상의 파일 첨부 시 "#fileUp_2" -->
+                                <!-- 파일첨부 시 오류 "#fileUp_3" -->
+                                <input type="file" class="form-control file-input" id="file" multiple="true" accept=".jpg,.jpeg,.png,.svg,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.pdf,.hwp" @change="fileSelect($event)">
+                                <label class="file-label" for="file">Please attach the file</label>
+                                <div class="badge-group mt-2 fileDiv">
+<!--                                     <button class="badge rounded-pill bg-secondary d-inline-block">20210917__048.png<i class="fas fa-times ms-2"></i></button> -->
+<!--                                     <button class="badge rounded-pill bg-primary d-inline-block">20210917__050.jpg<i class="fas fa-times ms-2"></i></button> -->
+                                </div>
+                                <p class="file-notice mb-0">* Allow File Type : jpg, jpeg, png, svg, xls, xlsx, doc, docx, ppt, pptx, pdf, hwp / Max File size 100MB.</p>
+                            </div>
+						</td>
+					</tr>
+                    <tr>
+						<th>Publishing period</th>
+						<td colspan="3">
+                            <div class="d-flex">
+
+								<div class="d-flex date-picker me-3">
+									<div class="d-flex">
+										<div class="input-group me-1">
+											<vuejs-datepicker v-model="form.bd10Sdate" input-class="form-control" :value="form.bd10Sdate" :language="vdp_translation_ko.js" format="yyyy-MM-dd" @input="form.bd10Sdate = $formatDate(form.bd10Sdate)"></vuejs-datepicker>
+										</div>
+									</div>
+
+									<div class="d-flex align-items-center mx-2">
+										<span>~</span>
+									</div>
+									
+									<div class="d-flex">
+										<div class="input-group me-1">
+											<vuejs-datepicker v-model="form.bd10Edate" input-class="form-control" :value="form.bd10Edate" :language="vdp_translation_ko.js" format="yyyy-MM-dd" @input="form.bd10Edate = $formatDate(form.bd10Edate)"></vuejs-datepicker>
+										</div>
+									</div>
+								</div>
+    
+                                <div class="checkbox-group d-flex align-items-center">
+                                    <label class="btn-checkbox">
+                                        <input type="checkbox" ref="is_endless" @click="setEndDate($event)">
+                                        <small class="checkbox-text">No end date</small>
+                                    </label>
+                                </div>
+                            </div>
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+
+            <div class="btn-group d-flex">
+                <div class="col-4">
+
+                </div>
+                <div class="col-4 d-flex justify-content-center">
+                    <div>
+                        <button class="btn btn-outline-primary btn-md" @click="goList">Cancel</button>
+                    </div>
+                    <div>
+                        <!-- 제목 미 입력 "#noticeSave_1" -->
+                        <!-- 내용 미 입력 "#noticeSave_2" -->
+                        <!-- 공지시작일시 > 공지종료일시 "#noticeSave_3" -->
+                        <!-- 공지기간이 유효하지 않은 경우 // 시작일을 현재보다 과거로 선택 시 등 "#noticeSave_4" -->
+                        <!-- 정상등록 시 // [확인] 클릭 시 등록 완료되며, 목록페이지로 이동 "#noticeSave_5" -->
+                        <button class="btn btn-primary btn-md" @click="save">Save</button>
+                    </div>
+                </div>
+<!--                 <div class="col-4 d-flex justify-content-between"> -->
+<!--                     <div> -->
+
+<!--                     </div> -->
+<!--                     삭제버튼 선택 시 // [확인] 클릭 시 삭제 처리되며, 목록페이지로 이동 "#noticeDel_1" -->
+<!--                     <button class="btn btn-primary btn-md" @click="goDelete">삭제</button> -->
+<!--                 </div> -->
+            </div>
+        </div>
+	</div>
+
+</body><!-- end::Body -->
+</html>

@@ -1,0 +1,23 @@
+{
+	"rtnStatus": "success",
+	"rtnMsg": "정상 조회 되었습니다.",
+	"data": {
+		"hqCode" : "OHQ0001",
+		"brCode" : "OBR0001",
+		"ptCode" : "OPT0001",
+		"teacherId" : "TC001",
+		"name" : "김별",
+		"type" : "관리,학습",
+		"status" : "휴직",
+		"expireDate" : "2022-12-31",
+		"gender" : "여자",
+		"birth" : "1990-02-21",
+		"phone" : "000-0000-0000",
+		"email" : "abc123@gmail.com",
+		"address" : "서울 강남구 테헤란로 129, 강남 N 타워, 15층 1505호",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30"  
+	}
+}

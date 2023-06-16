@@ -1,0 +1,31 @@
+{
+	"rtnStatus": "success",
+	"rtnMsg": "정상 조회 되었습니다.",
+	"total": 32,
+	"list": [{
+		"fileName" : "all in one 학습과정 모듈_211001",
+		"fileId" : "FILE202111011629040001",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30"
+	}, {
+		"fileName" : "all in one 학습과정 모듈_211002",
+		"fileId" : "FILE202111011629040001",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30"
+	}, {
+		"fileName" : "all in one 학습과정 모듈_211003",
+		"fileId" : "FILE202111011629040001",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30"
+	}, {
+		"fileName" : "all in one 학습과정 모듈_211004",
+		"fileId" : "FILE202111011629040002",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30"
+	}, {
+		"fileName" : "all in one 학습과정 모듈_211005",
+		"fileId" : "FILE202111011629040003",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30"
+	}]
+}

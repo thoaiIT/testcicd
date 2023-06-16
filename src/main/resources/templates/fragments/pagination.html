@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+			<div th:fragment="pagination" class="d-flex justify-content-center">
+				<ul class="pagination mb-0" v-if="pagination.totalRecordCount > 0">
+				    <li class="page-item page-arrow">
+				    	<a v-if="pagination.totalRecordCount > 0" class="page-link" href="#" @click.prevent="goPage(pagination.firstPage)"><i class="all-prev"></i></a>
+				    	<a v-else class="page-link"><i class="all-prev"></i>
+				    </li>
+				    <li class="page-item page-arrow">
+				    	<a v-if="pagination.currentPage > 1" class="page-link" href="#" @click.prevent="goPage(pagination.currentPage - 1)"><i class="prev"></i></a>
+				    	<a v-else class="page-link"><i class="prev"></i></a>
+				    </li>
+				    <li v-for="n in pagination.lastPage" :key="n" class="page-item" :class="{active: pagination.currentPage === n}">
+				    
+				    	<a v-if="pagination.currentPage === n" class="page-link">{{n}}</a>
+				    	<a v-else class="page-link" href="#" @click.prevent="goPage(n)">{{n}}</a>
+				    </li>
+				    
+				    <li class="page-item page-arrow">
+				    	<a v-if="pagination.currentPage < pagination.lastPage" class="page-link" href="#" @click.prevent="goPage(pagination.currentPage + 1)"><i class="next"></i></a>
+				    	<a v-else class="page-link"><i class="next"></i></a>
+				    </li>
+				    <li class="page-item page-arrow">
+				    	<a v-if="pagination.lastPage > 0" class="page-link" href="#" @click.prevent="goPage(pagination.lastPage)"><i class="all-next"></i></a>
+				    	<a v-else class="page-link"><i class="all-next"></i></a>
+				    </li>
+				</ul>
+			</div>
+
+</html>

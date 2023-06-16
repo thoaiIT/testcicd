@@ -1,0 +1,120 @@
+{
+	"rtnStatus": "success",
+	"rtnMsg": "정상 조회 되었습니다.",
+	"total": 14,
+	"list": [{
+		"code" : "OHQ0001",
+		"name" : "서울",
+		"isActive" : "Y",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30",
+		"list":[{
+			"code" : "OBR0001",
+			"name" : "강남",
+			"isActive" : "Y",
+			"createdBy" : "홍길동",
+			"creationDate" : "2021-10-01 10:30",
+			"lastUpdatedBy" : "홍길동",
+			"lastUpdateDate" : "2021-10-01 10:30",
+			"list":[{
+				"code" : "OPT0001",
+				"name" : "AA",
+				"isActive" : "Y",
+				"createdBy" : "홍길동",
+				"creationDate" : "2021-10-01 10:30",
+				"lastUpdatedBy" : "홍길동",
+				"lastUpdateDate" : "2021-10-01 10:30"
+			}, {
+				"code" : "OPT0002",
+				"name" : "BB",
+				"isActive" : "N",
+				"createdBy" : "홍길동",
+				"creationDate" : "2021-10-01 10:30",
+				"lastUpdatedBy" : "홍길동",
+				"lastUpdateDate" : "2021-10-01 10:30"
+			}]
+		}, {
+			"code" : "OBR0002",
+			"name" : "송파",
+			"isActive" : "Y",
+			"createdBy" : "홍길동",
+			"creationDate" : "2021-10-01 10:30",
+			"lastUpdatedBy" : "홍길동",
+			"lastUpdateDate" : "2021-10-01 10:30"
+		}]
+	}, {
+		"code" : "OHQ0002",
+		"name" : "인천",
+		"isActive" : "Y",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30"
+	}, {
+		"code" : "OHQ0003",
+		"name" : "부산",
+		"isActive" : "N",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30"
+	}, {
+		"code" : "OHQ0004",
+		"name" : "대구",
+		"isActive" : "Y",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30"
+	}, {
+		"code" : "OHQ0005",
+		"name" : "대전",
+		"isActive" : "Y",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30"
+	}, {
+		"code" : "OHQ0006",
+		"name" : "세종",
+		"isActive" : "Y",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30"
+	}, {
+		"code" : "OHQ0007",
+		"name" : "울산",
+		"isActive" : "Y",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30"
+	}, {
+		"code" : "OHQ0008",
+		"name" : "경기",
+		"isActive" : "Y",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30"
+	}, {
+		"code" : "OHQ0009",
+		"name" : "강원",
+		"isActive" : "Y",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30"
+	}, {
+		"code" : "OHQ010",
+		"name" : "충북",
+		"isActive" : "Y",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-10-01 10:30"
+	}]
+}

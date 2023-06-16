@@ -1,0 +1,37 @@
+{
+    "rtnStatus": true,
+    "list": [
+        {
+            "code": "LR",
+            "codeName": "학습",
+            "list": [
+                {
+                    "code": "LRTBG",
+                    "codeName": "교사배지"
+                },
+                {
+                    "code": "LRSBG",
+                    "codeName": "학생배지",
+                    "list": [
+                        {
+                            "code": "LRSBG0010",
+                            "codeName": "국어의신"
+                        },
+                        {
+                            "code": "LRSBG0020",
+                            "codeName": "수학의달인"
+                        },
+                        {
+                            "code": "LRSBG0030",
+                            "codeName": "사회챔피언"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "code": "CM",
+            "codeName": "공통"
+        }
+    ]
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/default}"
+>
+  <!-- start::Head -->
+  <head>
+    <style>
+      #app {
+        display: flex;
+      }
+      .group {
+        width: 300px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin: 10px;
+      }
+
+      .field-list {
+        min-height: 100px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin-top: 5px;
+      }
+
+      .field {
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5px 0;
+      }
+    </style>
+    <script th:src="@{/js/app/tr/ntTree.js}"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto";
+        font-size: 18px;
+      }
+      /* ONLY required CSS */
+      ul,
+      ol {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+      }
+      .headBnr {
+        position: absolute;
+        width: 100%;
+        height: 80px;
+        background-color: #ccc;
+      }
+      .simpleListInfo {
+        position: absolute;
+        right: 5%;
+        top: 12%;
+        width: 65%;
+        overflow-y: scroll;
+      }
+      .simpleListContainer {
+        position: absolute;
+        left: 3%;
+        top: 15%;
+        width: 15%;
+        min-width: 200px;
+        border: 1px solid rgb(165, 165, 165);
+        padding: 15px;
+      }
+      #title {
+        font-size: 26px;
+        font-weight: 900;
+        padding-left: 3%;
+      }
+    </style>
+  </head>
+  <!-- end::Head -->
+
+  <!-- start::Body -->
+  <body>
+    <div id="main" layout:fragment="content" class="notice-manage">
+      <div id="ntTree" class="table-wrap mx-auto">
+        <div class="group" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <h3>Group 1</h3>
+          <div
+            class="field-list"
+            ondragstart="drag(event)"
+            draggable="true"
+            id="group-1"
+          ></div>
+        </div>
+        <div>
+          <button>Add</button>
+          <button>Delete</button>
+        </div>
+        <div class="group" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <h3>Group 2</h3>
+          <div
+            class="field-list"
+            ondragstart="drag(event)"
+            draggable="true"
+            id="group-2"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- end::Body -->
+</html>

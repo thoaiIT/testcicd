@@ -1,0 +1,30 @@
+{
+	"rtnStatus": "success",
+	"rtnMsg": "정상 조회 되었습니다.",
+	"list": [{
+		"parentCode" : "-",
+		"code" : "OPT0001",
+		"name" : "AA",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "OPT0002",
+		"name" : "BB",
+		"isActive" : "Y"          
+	}, {
+		"parentCode" : "-",
+		"code" : "OPT0003",
+		"name" : "CC",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "OPT0004",
+		"name" : "DD",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "OPT0005",
+		"name" : "EE",
+		"isActive" : "Y"
+	}]
+}

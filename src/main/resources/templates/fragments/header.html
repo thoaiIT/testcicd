@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div id="header" th:fragment="headerFragment">
+    <div class="d-flex justify-content-between">
+        <div class="logo">
+            <a th:href="@{/}"><i class="uil-location-arrow-alt text-info"></i>Madive One</a>
+        </div>
+        <div class="d-flex align-items-center">
+            <div>
+                <span class="my-name">[[${session.SessionUser.name}]]</span>
+            </div>
+            <a class="btn btn-primary logout-btn ms-2" th:href="@{/lo/01/02}">Log Out</a>
+        </div>
+    </div>
+</div>
+</html>

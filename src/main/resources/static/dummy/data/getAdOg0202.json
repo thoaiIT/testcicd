@@ -1,0 +1,31 @@
+{
+	"rtnStatus": "success",
+	"rtnMsg": "정상 조회 되었습니다.",
+	"total": 32,
+	"list": [{
+		"fileName" : "all in one APP 조직관리_admin 관리자설계 공유_211001",
+		"fileId" : "FILE202111011629040010",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30"
+	}, {
+		"fileName" : "all in one APP 조직관리_admin 관리자설계 공유_211002",
+		"fileId" : "FILE202111011629040009",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30"
+	}, {
+		"fileName" : "all in one APP 조직관리_admin 관리자설계 공유_211003",
+		"fileId" : "FILE202111011629040008",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30"
+	}, {
+		"fileName" : "all in one APP 조직관리_admin 관리자설계 공유_211004",
+		"fileId" : "FILE202111011629040007",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30"
+	}, {
+		"fileName" : "all in one APP 조직관리_admin 관리자설계 공유_211005",
+		"fileId" : "FILE202111011629040006",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-10-01 10:30"
+	}]
+}

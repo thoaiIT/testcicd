@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<script th:inline="javascript">
+		const contextPath = /*[[${#httpServletRequest.getContextPath()}]]*/'';
+        const profiles = /*[[${@environment.getProperty('spring.profiles.active')}]]*/'';
+        let authStatus = /*[[${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}]]*/false;
+    </script>
+
+	<th:block th:include="fragments/include"></th:block>
+	<th:block th:include="fragments/template"></th:block>
+</head>
+
+<body>
+	<!-- header 시작 -->
+	<div th:replace="fragments/header :: headerFragment"></div>
+	<!-- header 끝 -->
+	
+	<!-- lnb 추가 시작 -->
+	<div th:replace="fragments/lnb :: lnbFragment"></div>
+	<!-- lnb 추가 끝 -->
+
+	<!-- content 시작 -->
+	<div layout:fragment="content"></div>
+	<!-- content 끝 -->
+
+	<th:block layout:fragment="modals"></th:block>
+	
+	<!-- footer 시작 -->
+	<!--
+	<footer id="footer-quick"
+		th:replace="fragments/footer :: footerFragment"></footer>
+	 -->
+	<!-- footer 끝 -->
+
+	<!-- loading-->
+	<div id="loading" class="load-circle">
+		<div class="circle">
+			<div class="c1"><span></span></div>
+			<div class="c2"><span></span></div>
+			<div class="c3"><span></span></div>
+			<div class="c4"><span></span></div>
+			<div class="c5"><span></span></div>
+		</div>
+	</div>
+
+	<!-- 파일다운용 iframe 시작 -->
+	<iframe name="exportframe" width="0" height="0" frameborder="0" scrolling="no" src="about:blank"></iframe>
+	<!-- 파일다운용 iframe 끝 -->
+	
+	<!-- Excel Export용 div 시작 -->
+	<div id="excelExport"></div>
+	<!-- Excel Export용 div 끝 -->
+</body>
+</html>

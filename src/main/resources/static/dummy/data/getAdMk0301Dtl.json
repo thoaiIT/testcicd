@@ -1,0 +1,19 @@
+{
+    "rtnStatus": "success",
+    "rtnMsg" : "",
+    "data": {
+        "id": 1,
+        "type": "담임 선생님 보상",
+        "method": "액션-실시간",
+        "methodCode": "2",
+        "title": "우수 회원 깜짝 선물",
+        "content": "교사가 지급 된 포인트 내에서 한 회원에게 한달에 1회 포인트 지급 가능(교사 1인당 관리 회원 수에 따라 매달 포인트 지급)",
+        "point": "2021",
+        "startDate": "2021-09-10 00:00",
+        "endDate": "2021-12-31 23:59",
+        "createdBy": "홍길동",
+        "creationDate": "홍길동",
+        "lastUpdatedBy": "2021-09-09 09:12:45",
+        "lastUpdateDate": "2021-09-09 09:12:45"               
+	}
+}

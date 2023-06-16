@@ -1,0 +1,20 @@
+{
+	"rtnStatus": "success",
+	"rtnMsg": "정상 조회 되었습니다.",
+	"list": [{
+		"publisher_code" : "통합",
+		"publisher" : "통합"  
+	}, {
+		"publisher_code" : "지학사",
+		"publisher" : "지학사"          
+	}, {
+		"publisher_code" : "아이스크림",
+		"publisher" : "아이스크림" 
+	}, {
+		"publisher_code" : "금성",
+		"publisher" : "금성"  
+	}, {
+		"publisher_code" : "비상",
+		"publisher" : "비상"
+	}]
+}

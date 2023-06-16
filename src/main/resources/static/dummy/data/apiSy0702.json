@@ -1,0 +1,101 @@
+{
+    "rtnStatus": true,
+    "$R": [
+        {
+            "code": "CM",
+            "codeName": "공통"
+        },
+        {
+            "code": "US",
+            "codeName": "사용자"
+        },
+        {
+            "code": "LR",
+            "codeName": "학습"
+        },
+        {
+            "code": "BS",
+            "codeName": "게시판"
+        },
+        {
+            "code": "OR",
+            "codeName": "조직"
+        }
+    ],
+    "LR": [
+        {
+            "code": "LRTBG",
+            "codeName": "교사배지"
+        },
+        {
+            "code": "LRSBG",
+            "codeName": "학생배지"
+        },
+        {
+            "code": "LRCUR",
+            "codeName": "교육과정"
+        },
+        {
+            "code": "LRPRG",
+            "codeName": "progressType"
+        },
+        {
+            "code": "LRLTD",
+            "codeName": "학습성향"
+        },
+        {
+            "code": "LRLPG",
+            "codeName": "학습진도 목표"
+        },
+        {
+            "code": "LRLDT",
+            "codeName": "학습일 유형"
+        },
+        {
+            "code": "LRLUT",
+            "codeName": "학습단원 유형"
+        },
+        {
+            "code": "LRWGT",
+            "codeName": "weight"
+        },
+        {
+            "code": "LRCEL",
+            "codeName": "contentElement"
+        },
+        {
+            "code": "LRCST",
+            "codeName": "내용구조"
+        },
+        {
+            "code": "LRCCA",
+            "codeName": "내용영역"
+        }
+    ],
+    "LRSBG": [
+        {
+            "code": "LRSBG0010",
+            "codeName": "국어의신"
+        },
+        {
+            "code": "LRSBG0020",
+            "codeName": "수학의달인"
+        },
+        {
+            "code": "LRSBG0030",
+            "codeName": "사회챔피언"
+        },
+        {
+            "code": "LRSBG0040",
+            "codeName": "미래과학자"
+        },
+        {
+            "code": "LRSBG0050",
+            "codeName": "영어마스터"
+        },
+        {
+            "code": "LRSBG0060",
+            "codeName": "전과목 성적 우수"
+        }
+    ]
+}

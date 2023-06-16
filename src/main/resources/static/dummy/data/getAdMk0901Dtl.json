@@ -1,0 +1,66 @@
+{
+    "status": "00",
+    "msg" : "success",
+    "data": {
+        "mk09Data01": 3,
+        "mk09Data02": "OHQ0001",
+        "mk09Data02Txt": "서울",
+        "mk09Data03": "OBR0003",
+        "mk09Data03Txt": "강북",
+        "mk09Data04": "OPT0003",
+        "mk09Data04Txt": "BB",
+        "mk09Data05": "",
+        "mk09Data05Txt": "전체",
+        "mk09Data06": "푸시 제목노출",
+        "mk09Data07": "푸시 내용이 들어가는자리",
+        "mk09Data08": "https://drive.google.com/drive/folders/13h9krJTktQTQZATuoNj2nZRs0g1MNlwj",
+        "mk09Data09": "2021-12-11 00:00",
+        "mk09Data10": "홍길동",
+        "mk09Data11": "홍길동",
+        "mk09Data12": "2021-09-09 09:12:45",
+        "mk09Data13": "2021-09-09 09:12:45",
+        "mk09Data14": 10,        
+        "list": [
+	        {
+	            "mk09List01": "1",
+	            "mk09List02": "김정민"
+	        },
+	        {
+	            "mk09List01": "2",
+	            "mk09List02": "홍길동"
+	        },
+	        {
+	            "mk09List01": "3",
+	            "mk09List02": "아름"
+	        },
+	        {
+	            "mk09List01": "4",
+	            "mk09List02": "관우"
+	        },
+	        {
+	            "mk09List01": "5",
+	            "mk09List02": "장비"
+	        },
+	        {
+	            "mk09List01": "6",
+	            "mk09List02": "아아아"
+	        },
+	        {
+	            "mk09List01": "7",
+	            "mk09List02": "이름"
+	        },
+	        {
+	            "mk09List01": "8",
+	            "mk09List02": "이름8"
+	        },
+	        {
+	            "mk09List01": "9",
+	            "mk09List02": "이름"
+	        },
+	        {
+	            "mk09List01": "10",
+	            "mk09List02": "이름"
+	        }
+	    ]
+	}
+}

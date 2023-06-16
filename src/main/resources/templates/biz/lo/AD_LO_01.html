@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/empty}">
+<head>
+<script th:src="@{/js/app/lo/lo01.js}"></script>
+</head>
+<body>
+<div layout:fragment="content" id="wrap" class="login">
+    <div class="login-form pb-0">
+        <div class="text-center" style="background-color:#000000">
+            <img th:src="@{/assets/images/madive_logo.png}" class="img-fluid login-logo" />
+        </div>
+        <form th:action="@{/lo/01}" method="post">
+            <div class="login-box">
+                <div class="mb-3 position-relative">
+                    <p class="mb-2 fw-bold">ID</p>
+                    <div class="input-group">
+                        <input type="text" name="username" class="form-control" placeholder="Please input ID" minlength="6" maxlength="12" v-model="username" />
+                        <button class="btn btn-clear" type="button" @click.prevent="username = ''"></button>
+                    </div>
+                    <label class="btn-checkbox">
+                        <input type="checkbox" checked="checked">
+                        <small class="checkbox-text">Save ID</small>
+                    </label>
+                </div>
+                <div class="mb-3">
+                    <p class="mb-2 fw-bold">Password</p>
+                    <div class="input-group">
+                        <input type="password" name="password" class="form-control" placeholder="Please input password" minlength="8" v-model="password" />
+                        <button class="btn btn-clear" type="button" @click.prevent="password = ''"></button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary w-100" @click.prevent="fnLogin">Login</button>
+            </div>
+            <hr>
+            <div class="login-footer text-center">
+                <div>
+                    <small>It's a system for Madive ONE officials.</small>
+                    <small>Illegal use can result in legal sanctions.</small>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

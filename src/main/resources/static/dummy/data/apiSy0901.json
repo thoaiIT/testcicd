@@ -1,0 +1,11 @@
+{
+    "rtnStatus": true,
+    "code": "LRSBG0010",
+    "codeName": "국어의신",
+    "desc": "학력평가의 국어 단원평가 5번 이상 90점 이상 달성 시 (5회 연속 아님)",
+    "isActive": "Y",
+    "createdBy": "홍길동",
+    "creationDate": "2021-09-02 09:11:55",
+    "lastUpdatedBy": "홍길동",
+    "lastUpdateDate": "2021-09-04 10:10:00"
+}

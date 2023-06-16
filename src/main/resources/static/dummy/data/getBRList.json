@@ -1,0 +1,30 @@
+{
+	"rtnStatus": "success",
+	"rtnMsg": "정상 조회 되었습니다.",
+	"list": [{
+		"parentCode" : "-",
+		"code" : "OBR0001",
+		"name" : "강남",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "OBR0002",
+		"name" : "강서",
+		"isActive" : "Y"          
+	}, {
+		"parentCode" : "-",
+		"code" : "OBR0003",
+		"name" : "강북",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "OBR0004",
+		"name" : "강동",
+		"isActive" : "Y"  
+	}, {
+		"parentCode" : "-",
+		"code" : "OBR0005",
+		"name" : "성북",
+		"isActive" : "Y"
+	}]
+}

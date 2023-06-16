@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/default}">
+<!-- start::Head -->
+<head>
+<script th:src="@{/js/app/bd/ntList.js}"></script>
+</head>
+<!-- end::Head -->
+
+<!-- start::Body -->
+<body>
+
+	<div id="main" layout:fragment="content" class="notice-manage">
+        <div id="ntList" class="table-wrap mx-auto">
+            <h1 class="fw-bolder mb-3">Notice</h1>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+					<li class="breadcrumb-item active"><a href="#">Notice List</a></li>
+				</ol>
+			</nav>
+
+			<hr>
+
+			<table class="table">
+
+				<colgroup>
+					<col width="25%">
+					<col>
+				</colgroup>
+
+				<tbody>
+					<tr>
+						<th>Category</th>
+						<td>
+							<div class="d-flex">
+								<select class="form-select form-md me-2" v-model="search.category">
+									<option value="" selected>All</option>
+									<option v-for="(data, index) in category" :value="data.code">{{data.text}}</option>
+								</select>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>Status</th>
+						<td>
+							<div class="checkbox-group d-flex align-items-center">
+								<label class="btn-checkbox">
+									<input type="checkbox" class="checkAll has-group1">
+									<small class="checkbox-text">All</small>
+								</label>
+								<label class="btn-checkbox" v-for="(data, index) in tStat">
+									<input type="checkbox" class="group1" v-model="search.status" :value="data.id">
+									<small class="checkbox-text">{{data.text}}</small>
+								</label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>Type</th>
+						<td>
+							<div class="checkbox-group d-flex align-items-center">
+								<label class="btn-checkbox">
+									<input type="checkbox" class="checkAll has-group2">
+									<small class="checkbox-text">All</small>
+								</label>
+								<label class="btn-checkbox" v-for="(data, index) in tType">
+									<input type="checkbox" class="group2" v-model="search.type" :value="data.id">
+									<small class="checkbox-text">{{data.text}}</small>
+								</label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>Period</th>
+						<td class="d-flex">
+                            <select class="form-select form-sm me-2" v-model="search.periodType">
+                            	<option v-for="(data, index) in periodType" :value="data.id">{{data.text}}</option>
+							</select>
+
+							<!-- 캘린더는 추후 수정 예정입니다. -->
+							<div class="d-flex date-picker me-2">
+								<div class="">
+									<div class="input-group">
+										<vuejs-datepicker v-model="search.fromDate" input-class="form-control" :value="search.fromDate" :language="vdp_translation_ko.js" format="yyyy-MM-dd" @input="search.fromDate = $formatDate(search.fromDate)"></vuejs-datepicker>
+									</div>
+								</div>
+								<div class="d-flex align-items-center mx-2">
+									<span>~</span>
+								</div>
+								<div class="ms-1">
+									<div class="input-group">
+										<vuejs-datepicker v-model="search.toDate" input-class="form-control" :value="search.toDate" :language="vdp_translation_ko.js" format="yyyy-MM-dd" @input="search.toDate = $formatDate(search.toDate)"></vuejs-datepicker>
+									</div>
+								</div>
+							</div>
+
+							<div class="radio-group d-flex align-items-center">
+								<label class="btn-radio">
+									<input type="radio" name="termsPicked" :value="0" v-model="termsPicked" :data-type="'day'" @change="setTermTg($event)">
+									<small class="radio-text">Today</small>
+								</label>
+								<label class="btn-radio">
+									<input type="radio" name="termsPicked" :value="7" v-model="termsPicked" :data-type="'day'" @change="setTermTg($event)">
+									<small class="radio-text">7D</small>
+								</label>
+								<label class="btn-radio">
+									<input type="radio" name="termsPicked" :value="2" v-model="termsPicked" :data-type="'weeks'" @change="setTermTg($event)">
+									<small class="radio-text">2W</small>
+								</label>
+								<label class="btn-radio">
+									<input type="radio" name="termsPicked" :value="1" v-model="termsPicked" :data-type="'month'" @change="setTermTg($event)">
+									<small class="radio-text">1M</small>
+								</label>
+								<label class="btn-radio">
+									<input type="radio" name="termsPicked" :value="3" v-model="termsPicked" :data-type="'month'" @change="setTermTg($event)" @click="setTermTg($event)" ref="defaultPick">
+									<small class="radio-text">3M</small>
+								</label>
+							</div>
+						</td>
+					</tr>
+                    <tr>
+						<th>Search Keyword</th>
+						<td class="d-flex">
+							<select class="form-select form-sm me-2" v-model="search.criteria">
+								<option v-for="(data, index) in criteria" :value="data.id">{{data.text}}</option>
+							</select>
+
+							<input class="form-control form-xl" type="text" placeholder="" v-model="search.keyword">
+						</td>
+					</tr>
+
+				</tbody>
+			</table>
+
+			<div class="btn-group d-flex justify-content-center mb-4">
+				<div>
+					<button class="btn btn-outline-primary btn-md" @click.prevent="goSearch">Search</button>
+				</div>
+				<div>
+					<button class="btn btn-primary btn-md" @click.prevent="resetForm">Initialize</button>
+				</div>
+			</div>
+
+			<div class="d-flex justify-content-between mb-2">
+				<div class="table-result-label">
+					Search result : {{pagination.totalRecordCount}}
+				</div>
+				<button class="btn btn-primary" @click="location.href='/bd/write'">Write</button>
+			</div>
+	
+			<div class="table-scroll-wrap mb-3">
+				<table class="table table-result w-100">
+					<colgroup>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+						<col>
+					</colgroup>
+	
+					<thead>
+						<tr>
+							<th>NO</th>
+							<th>Category</th>
+							<th>Status</th>
+							<th>Type</th>
+							<th>Subject</th>
+							<th>Open Period</th>
+							<th>Writer</th>
+							<th>Writed Date</th>
+							<th>Updater</th>
+							<th>Updated Date</th>
+						</tr>
+					</thead>
+	
+					<tbody>
+						<tr v-for="(data, index) in list">
+							<td>{{data.articleNo}}</td>
+							<td>{{data.category}}</td>
+							<td>{{data.status}}</td>
+							<td>{{data.type}}</td>
+							<td class="text-start row-title-md"><a class="text-loss loss-md" href="javascript:void(0)" @click="goDetail(data.bd10Sdate, data.bd10Guid)">{{data.bd10Subject}}</td>
+							<td>{{data.bd10Sdate}} ~ {{data.bd10Edate}}</td>
+							<td>{{data.regName}}</td>
+                            <td>{{data.regDate}}</td>
+                            <td>{{data.updName}}</td>
+                            <td>{{data.updDate}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<!-- start common pagination -->
+	    	<div th:replace="fragments/pagination :: pagination"></div>
+	    	<!-- end common pagination -->
+	    	
+        </div>
+	</div>
+
+</body><!-- end::Body -->
+</html>

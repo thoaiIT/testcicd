@@ -1,0 +1,50 @@
+{
+    "rtnStatus": "success",
+    "rtnMsg": "정상 조회 되었습니다.",
+    "total": 21,
+    "list": [
+        {
+            "id": 1,
+            "type": "자동 적립",
+            "method": "액션-실시간",
+            "status": "진행",
+            "title": "우수 회원 깜짝 선물",
+            "point": 1000,
+            "startDate": "2021-09-10 00:00",
+            "endDate": "2021-11-10 22:00",
+            "createdBy": "홍길동",
+            "creationDate": "2021-09-09 09:12:45",
+            "lastUpdatedBy": "홍길동",
+            "lastUpdateDate": "2021-09-09 09:12:45"           
+        },
+        {
+            "id": 2,
+            "type": "자동 적립",
+            "method": "자동배치",
+            "status": "대기",
+            "title": "우수 회원 깜짝 선물2",
+            "point": 2000,
+            "startDate": "2021-10-30 00:00",
+            "endDate": "9999-12-31 23:59",
+            "createdBy": "홍길동",
+            "creationDate": "2021-09-09 09:12:45",
+            "lastUpdatedBy": "홍길동",
+            "lastUpdateDate": "2021-09-09 09:12:45"           
+        },
+        {
+            "id": 3,
+            "type": "자동 적립",
+            "method": "자동배치",
+            "status": "종료",
+            "title": "우수 회원 깜짝 선물3",
+            "point": 2000,
+            "startDate": "2021-09-10 00:00",
+            "endDate": "2021-09-23 23:59",
+            "createdBy": "홍길동",
+            "creationDate": "2021-09-09 09:12:45",
+            "lastUpdatedBy": "홍길동",
+            "lastUpdateDate": "2021-09-09 09:12:45"           
+        }
+        
+    ]
+}

@@ -1,0 +1,51 @@
+<th:block xmlns:th="http://www.thymeleaf.org">
+	<script type="text/x-template" id="selectOption-template">
+	<div>
+    	<niceSelect :options="options" v-model="selected">
+       		<option v-for="item in options" :value="item.id">
+       			{{ item.text }}
+			</option>
+    	</niceSelect>
+  	</div>
+	</script>
+	
+	<script type="text/x-template" id="niceSelect-template">
+	<select>
+    	<slot></slot>
+  	</select>
+	</script>
+	
+	<!-- common pagination -->
+	<script type="text/x-template" id="paging-template">
+	<div class="tab-pane fade active show" id="pagination" role="tabpanel">
+    	<h3 class="text-primary fw-bolder mb-4 border-bottom">Pagination</h3>
+
+    	<ul class="pagination" v-if="pagination.totalRecordCount > 0">
+        	<li v-if="pagination.totalRecordCount > 0" class="page-item page-arrow">
+				<a class="page-link" href="#" @click.prevent="goPage(pagination.firstPage)">
+					<i class="all-prev"></i>
+				</a>
+			</li>
+			<li v-if="pagination.currentPage > 1" class="page-item page-arrow">
+				<a class="page-link" href="#" @click.prevent="goPage(pagination.currentPage - 1)">
+					<i class="prev"></i>
+				</a>
+			</li>
+			<li v-for="n in pagination.lastPage" :key="n" class="page-item" :class="{active: pagination.currentPage === n}">
+				<a v-if="pagination.currentPage === n" class="page-link" href="#" @click.prevent="">{{n}}</a>
+				<a v-else class="page-link" href="#" @click.prevent="goPage(n)">{{n}}</a>
+			</li>
+        	<li v-if="pagination.currentPage < pagination.lastPage" class="page-item page-arrow">
+				<a class="page-link" href="#" @click.prevent="goPage(pagination.currentPage + 1)">
+					<i class="next"></i>
+				</a>
+			</li>
+        	<li v-if="pagination.lastPage > 0"class="page-item page-arrow">
+				<a class="page-link" href="#" @click.prevent="goPage(pagination.lastPage)">
+					<i class="all-next"></i>
+				</a>
+			</li>
+    	</ul>
+	</div>
+	</script>
+</th:block>

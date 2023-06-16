@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head th:fragment="headFragment">
+    <script th:inline="javascript">
+        const contextPath = /*[[${#httpServletRequest.getContextPath()}]]*/'';
+        const profiles = /*[[${@environment.getProperty('spring.profiles.active')}]]*/'';
+        let authStatus = /*[[${#authentication}? ${#authorization.expression('isAuthenticated()')} : ${false}]]*/false;
+    </script>
+    
+    <th:block th:include="fragments/include"></th:block>
+
+</head>
+<style>
+	[v-cloak] {
+		display: none;
+	}
+</style>
+</html>

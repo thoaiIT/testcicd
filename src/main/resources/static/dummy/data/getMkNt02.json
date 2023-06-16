@@ -1,0 +1,36 @@
+{
+	"rtnStatus" : "success",
+	"rtnMsg" : "정상 조회 되었습니다.",
+	"data" : {
+		"articleNo" : 1,
+		"target" : "교사",
+		"hqCode" : "OHQ0001",
+		"hqName" : "서울",
+		"brCode" : "OBR0001",
+		"brName" : "강남",
+		"ptCode" : "OPT0001",
+		"ptName" : "AA",
+		"grade" : "3",
+		"status" : "종료",
+		"type" : "일반",
+		"isMain" : "Y",
+		"subject" : "2021년 9월 공지사항입니다.",
+		"content" : "게시물 내용입니다.게시물 내용입니다.게시물 내용입니다.",
+		"startDate" : "2021-09-01 12:00",
+		"endDate" : "2021-09-30 23:59",
+		"createdBy" : "홍길동",
+		"creationDate" : "2021-09-01 10:30",
+		"lastUpdatedBy" : "홍길동",
+		"lastUpdateDate" : "2021-09-01 10:30",
+		"articleId" : 99,
+		"attachFiles" : [{
+			"fileNo": "1",
+			"fileName": "고양이사진.jpg",
+			"fileId": "/notice/2021/10/08/FILE0001"
+		},{
+			"fileNo": "2",
+			"fileName": "동물자료조사.docx",
+			"fileId": "/notice/2021/10/08/FILE0002"
+		}]
+	}
+}

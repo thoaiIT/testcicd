@@ -1,0 +1,34 @@
+
+?
+java:S5411¨"(Use a primitive boolean expression here.(Ó¸üó
+i
+java:S1845*"SRename method "SUCCESS" to prevent any misunderstanding/clash with field "SUCCESS".(©Ì¤ä
+n
+java:S18450"SRename method "SUCCESS" to prevent any misunderstanding/clash with field "SUCCESS".(ùî³¾üÿÿÿÿ
+n
+java:S18457"SRename method "FAILURE" to prevent any misunderstanding/clash with field "FAILURE".(±Â¨úÿÿÿÿÿ
+n
+java:S1845>"SRename method "FAILURE" to prevent any misunderstanding/clash with field "FAILURE".(œÕÜ¢şÿÿÿÿ
+2
+java:S2386"Make this member "protected".(Ê‰’X
+8
+java:S2386"Make this member "protected".(®ÿ±ùÿÿÿÿ
+8
+java:S2386"Make this member "protected".(ú¯Úüÿÿÿÿ
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ ëÆÿÿÿÿÿ
+c	java:S100#"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»Ø›µ
+c	java:S100*"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©Ì¤ä
+h	java:S1000"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùî³¾üÿÿÿÿ
+h	java:S1007"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±Â¨úÿÿÿÿÿ
+h	java:S100>"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÕÜ¢şÿÿÿÿ
+c	java:S100H"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öô–Ï
+h	java:S100P"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œàâşÿÿÿÿ
+h	java:S100X"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¶¶ùïøÿÿÿÿ
+h	java:S100^"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ºÛ•şÿÿÿÿ
+c	java:S100l"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îŒ»é
+h	java:S100t"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÎÚôÑùÿÿÿÿ
+c	java:S100z"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ù®º˜
+8
+java:S2326"K is not used in the method.(Õ×´úÿÿÿÿ
+8
+java:S2326†"K is not used in the method.(Û‘Öşÿÿÿÿ
