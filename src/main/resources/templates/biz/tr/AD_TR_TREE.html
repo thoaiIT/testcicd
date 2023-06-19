@@ -80,6 +80,17 @@
               <li v-for="item in treeViewRight" :key="item.id">
                 <input type="checkbox" :id="item.id" v-model="item.checked" />
                 <label :for="item.id">{{ item.label }}</label>
+                <ul v-if="item.children && item.children.length" class="px-2">
+                  <li v-for="child in item.children" :key="child.id">
+                    <input
+                      type="checkbox"
+                      :id="child.id"
+                      v-model="child.checked"
+                      @change="updateChildCheckboxes(child)"
+                    />
+                    <label :for="child.id">{{ child.label }}</label>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>

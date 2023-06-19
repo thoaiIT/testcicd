@@ -179,7 +179,10 @@ $(document).ready(function () {
             id: item.id,
             label: item.label,
             checked: false,
+            parent: item.parent,
+            children: item.children,
           };
+          console.log(newItem);
           this.treeViewRight.push(newItem);
           this.updateParentCheckboxesRecursive(this.treeViewLeft);
         });
