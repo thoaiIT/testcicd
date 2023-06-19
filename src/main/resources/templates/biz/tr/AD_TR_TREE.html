@@ -15,6 +15,8 @@
         padding: 10px;
         border: 1px solid #ccc;
         margin: 10px;
+        display: flex;
+        justify-content: space-between;
       }
 
       .field-list {
@@ -30,56 +32,14 @@
         padding: 5px;
         margin: 5px 0;
       }
+
+      .active {
+        background-color: green;
+        color: white;
+        font-weight: bold;
+      }
     </style>
     <script th:src="@{/js/app/tr/ntTree.js}"></script>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
-      html,
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: "Roboto";
-        font-size: 18px;
-      }
-      /* ONLY required CSS */
-      ul,
-      ol {
-        margin: 0;
-        padding: 0;
-      }
-      li {
-        list-style: none;
-      }
-      .headBnr {
-        position: absolute;
-        width: 100%;
-        height: 80px;
-        background-color: #ccc;
-      }
-      .simpleListInfo {
-        position: absolute;
-        right: 5%;
-        top: 12%;
-        width: 65%;
-        overflow-y: scroll;
-      }
-      .simpleListContainer {
-        position: absolute;
-        left: 3%;
-        top: 15%;
-        width: 15%;
-        min-width: 200px;
-        border: 1px solid rgb(165, 165, 165);
-        padding: 15px;
-      }
-      #title {
-        font-size: 26px;
-        font-weight: 900;
-        padding-left: 3%;
-      }
-    </style>
   </head>
   <!-- end::Head -->
 
@@ -87,27 +47,47 @@
   <body>
     <div id="main" layout:fragment="content" class="notice-manage">
       <div id="ntTree" class="table-wrap mx-auto">
-        <div class="group" ondrop="drop(event)" ondragover="allowDrop(event)">
-          <h3>Group 1</h3>
-          <div
-            class="field-list"
-            ondragstart="drag(event)"
-            draggable="true"
-            id="group-1"
-          ></div>
-        </div>
-        <div>
-          <button>Add</button>
-          <button>Delete</button>
-        </div>
-        <div class="group" ondrop="drop(event)" ondragover="allowDrop(event)">
-          <h3>Group 2</h3>
-          <div
-            class="field-list"
-            ondragstart="drag(event)"
-            draggable="true"
-            id="group-2"
-          ></div>
+        <div id="app" class="group">
+          <div>
+            <h3>Tree View Left</h3>
+            <ul>
+              <li v-for="item in treeViewLeft" :key="item.id">
+                <input
+                  type="checkbox"
+                  :id="item.id"
+                  v-model="item.checked"
+                  @change="updateParentCheckboxes(item)"
+                />
+                <label :for="item.id">{{ item.label }}</label>
+                <ul v-if="item.children && item.children.length" class="px-2">
+                  <li v-for="child in item.children" :key="child.id">
+                    <input
+                      type="checkbox"
+                      :id="child.id"
+                      v-model="child.checked"
+                      @change="updateChildCheckboxes(child)"
+                    />
+                    <label :for="child.id">{{ child.label }}</label>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3>Tree View Right</h3>
+            <ul>
+              <li v-for="item in treeViewRight" :key="item.id">
+                <input type="checkbox" :id="item.id" v-model="item.checked" />
+                <label :for="item.id">{{ item.label }}</label>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <button @click="addItems">Add</button>
+            <button @click="deleteItems">Delete</button>
+          </div>
         </div>
       </div>
     </div>
