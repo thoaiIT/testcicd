@@ -8,18 +8,22 @@ $(document).ready(function () {
           id: 1,
           label: "Item 1",
           checked: false,
+          active: true,
+          childCheck: false,
           parent: "",
           children: [
             {
               id: 1.1,
               label: "Item 1.1",
               checked: false,
+              active: true,
               parent: 1,
             },
             {
               id: 1.2,
               label: "Item 1.2",
               checked: false,
+              active: true,
               parent: 1,
             },
           ],
@@ -28,22 +32,27 @@ $(document).ready(function () {
           id: 2,
           label: "Item 2",
           checked: false,
+          active: true,
+          childCheck: false,
           children: [
             {
               id: 2.1,
               label: "Item 2.1",
               checked: false,
+              active: true,
               parent: 2,
             },
             {
               id: 2.2,
               label: "Item 2.2",
+              active: true,
               checked: false,
               parent: 2,
             },
             {
               id: 2.3,
               label: "Item 2.3",
+              active: true,
               checked: false,
               parent: 2,
             },
@@ -146,7 +155,6 @@ $(document).ready(function () {
         const child = item.children;
         console.log(child);
         if (item.checked) {
-          console.log("true");
           child.forEach((data) => (data.checked = true));
         } else {
           child.forEach((data) => (data.checked = false));
@@ -162,9 +170,15 @@ $(document).ready(function () {
         });
       },
       updateChildCheckboxes(item) {
+        console.log(item);
         const parent = this.treeViewLeft.filter(
           (data) => data.id === item.parent
         );
+        if (item.checked === true) {
+          console.log("check parent");
+          parent[0].childCheck = true;
+          console.log(parent[0].childCheck);
+        }
         if (parent[0].children.every((data) => data.checked)) {
           parent[0].checked = true;
         } else {
@@ -174,18 +188,57 @@ $(document).ready(function () {
       addItems() {
         console.log("add item");
         const selectedItems = this.treeViewLeft.filter((item) => item.checked);
+        const selectedItems2 = this.treeViewLeft.filter(
+          (item) => item.childCheck
+        );
+        console.log(selectedItems2);
         selectedItems.forEach((item) => {
+          item.active = false;
+          item.checked = false;
+          item.children.forEach((childItem) => {
+            childItem.active = false;
+            childItem.checked = false;
+          });
           const newItem = {
             id: item.id,
             label: item.label,
             checked: false,
             parent: item.parent,
-            children: item.children,
+            children: item.children.map((itemc) => {
+              console.log(itemc.checked);
+              if (itemc.checked === false) return;
+              return {
+                ...itemc,
+                checked: false,
+              };
+            }),
           };
-          console.log(newItem);
           this.treeViewRight.push(newItem);
           this.updateParentCheckboxesRecursive(this.treeViewLeft);
         });
+        selectedItems2.forEach((item) => {
+          item.active = false;
+          item.checked = false;
+          item.children.forEach((childItem) => {
+            childItem.active = false;
+            childItem.checked = false;
+          });
+          const newItem = {
+            id: item.id,
+            label: item.label,
+            checked: false,
+            parent: item.parent,
+            children: item.children.map((item) => {
+              return {
+                ...item,
+                checked: false,
+              };
+            }),
+          };
+          this.treeViewRight.push(newItem);
+          this.updateParentCheckboxesRecursive(this.treeViewLeft);
+        });
+        console.log(selectedItems);
       },
       deleteItems() {
         const selectedItems = this.treeViewRight.filter((item) => item.checked);

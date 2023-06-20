@@ -26,6 +26,10 @@
         margin-top: 5px;
       }
 
+      .disabledItem {
+        color: red;
+      }
+
       .field {
         background-color: #f0f0f0;
         border: 1px solid #ccc;
@@ -57,6 +61,7 @@
                   :id="item.id"
                   v-model="item.checked"
                   @change="updateParentCheckboxes(item)"
+                  :disabled="item.active===false"
                 />
                 <label :for="item.id">{{ item.label }}</label>
                 <ul v-if="item.children && item.children.length" class="px-2">
@@ -66,6 +71,7 @@
                       :id="child.id"
                       v-model="child.checked"
                       @change="updateChildCheckboxes(child)"
+                      :disabled="item.active===false"
                     />
                     <label :for="child.id">{{ child.label }}</label>
                   </li>
